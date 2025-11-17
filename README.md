@@ -1,114 +1,117 @@
-Urdugest
+## Urdugest
 
 Urdugest is an AI-powered Urdu Sign Language recognition system. It detects Urdu alphabets from hand gestures and forms complete words in real-time, helping bridge communication for Urdu sign language users.
 
-Project Structure
+## Project StructureUrdugest – Urdu Sign Language Recognition
+
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/Urdugest-green)
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)
+![Platform](https://img.shields.io/badge/Platform-Jupyter%20Notebook-orange)
+
+
+
+Urdugest is an AI-powered system that recognizes Urdu Sign Language (PSL) gestures and converts them into Urdu text in real-time. It detects alphabets, predicts words, and helps bridge communication gaps.
+
+## 🚀 Features
+
+#✋ Urdu Sign Detection – Detect hand gestures for Urdu alphabets
+
+🧹 Preprocessing Pipeline – Resize, normalize, augment images
+
+🤖 AI Prediction – Recognize alphabets using CNN/LSTM/Transformer
+
+📝 Word Formation – Combine predicted alphabets into words
+
+📊 Visualization & Logging – See predictions and model outputs
+
+📓 Fully implemented in: src/main.py, notebooks/demo.ipynb
+
+## 🛠️ Technologies Used
+Tool	Purpose
+Python	Main programming language
+PyTorch	Model training & inference
+OpenCV	Image processing & preprocessing
+NumPy / Pandas	Computation & data handling
+Matplotlib / Seaborn	Visualization
+Jupyter Notebook	Experiments and demo
+## 📁 Project Structure
 Urdugest/
 │
-├── data/                   # Original and preprocessed datasets
-│   ├── raw/                # Raw/untouched images or videos from the PSL dataset
-│   ├── processed/          # Preprocessed data (resized, normalized, augmented)
-│   └── README.md           # Dataset details: source, format, classes
+├── data/                   # Original & preprocessed datasets
+│   ├── raw/                # Raw PSL dataset
+│   ├── processed/          # Resized, normalized, augmented
+│   └── README.md           # Dataset details
 │
 ├── src/                    # Source code
-│   ├── __init__.py
-│   ├── main.py             # Main script to run training, prediction, or live demo
-│   ├── model.py            # Neural network architectures (CNN, LSTM, Transformer)
-│   ├── preprocess.py       # Data preprocessing functions
-│   ├── train.py            # Training script (with options for epochs, batch size, optimizer)
-│   ├── predict.py          # Load trained models and predict on images or live webcam feed
-│   └── utils.py            # Helper functions: metrics, plotting, saving/loading checkpoints
+│   ├── main.py             # Entry point
+│   ├── train.py            # Training script
+│   ├── predict.py          # Prediction script
+│   ├── model.py            # Model definitions
+│   ├── preprocess.py       # Preprocessing functions
+│   └── utils.py            # Helper functions
 │
-├── models/                 # Trained models and checkpoints
-│   ├── checkpoints/        # Intermediate saved models during training
-│   └── README.md           # Description of model files and formats (.h5, .pt)
+├── models/                 # Trained models & checkpoints
+│   └── README.md
 │
-├── notebooks/              # Jupyter notebooks for experiments and demos
-│   ├── exploratory.ipynb   # Dataset analysis and visualization
-│   └── demo.ipynb          # Demo of real-time recognition
+├── notebooks/              # Jupyter notebooks
+│   ├── exploratory.ipynb
+│   └── demo.ipynb
 │
-├── tests/                  # Unit tests for scripts
-│   ├── test_main.py        # Test main script runs correctly
-│   ├── test_model.py       # Test model architecture and forward pass
-│   └── test_utils.py       # Test helper functions
+├── tests/                  # Unit tests
+│   ├── test_main.py
+│   ├── test_model.py
+│   └── test_utils.py
 │
-├── scripts/                # Optional helper scripts
-│   └── download_data.py    # Script to download or prepare datasets
-│
-├── requirements.txt        # Python dependencies
-├── README.md               # Project description (this file)
-├── .gitignore              # Files/folders to ignore in Git
-├── LICENSE                 # License (e.g., MIT)
-└── setup.py                # Optional setup for packaging
+├── scripts/                # Helper scripts (e.g., dataset download)
+├── assets/                 # Logo, sample input/output
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
 
-Installation
-
-Clone the repository and install dependencies:
+## ▶️ How to Run
+## 1️⃣ Install Dependencies
 ```bash
-git clone <repository-url>
-cd Urdugest
 pip install -r requirements.txt
 ```
-Usage
-Training
+## 2️⃣ Run Training
+
 ```bash
 python src/train.py
 ```
-Prediction
+## 3️⃣ Predict on New Image or Video
+```bash
 python src/predict.py --image path_to_image
-
-Run Main Project
+```
+## 4️⃣ Run Main Program
 ```bash
 python src/main.py
 ```
-Contributing
+##💡 Example Pipeline
 
-Open issues or submit pull requests.
+Load image/video of hand gestures
 
-Ensure all tests pass before pushing changes.
+Detect hand signs
 
-Detailed File Explanation
+Preprocess the image (resize, normalize, augment)
 
-data/ – Stores all dataset files:
+Predict alphabet using trained AI model
 
-raw/ → Original PSL Urdu alphabet images or videos.
+Form complete word from predicted alphabets
 
-processed/ → Preprocessed dataset for training (resized, normalized, augmented).
+Display results
 
-README.md → Includes dataset details: source, format, classes.
+## 🛠️ Future Improvements
 
-src/ – Source code for training, prediction, and preprocessing:
+Deep learning gesture detection (YOLO, MediaPipe)
 
-main.py → Entry point for running training, testing, or demo.
+Real-time webcam support with low latency
 
-model.py → Define neural network architectures (CNN, LSTM, Transformers).
+Custom dataset expansion & augmentation
 
-preprocess.py → Data preprocessing: resizing, normalization, label encoding, augmentation.
+Multi-language support for regional sign languages
 
-train.py → Script to train models with configurable epochs, batch size, optimizer.
-
-predict.py → Load trained models and make predictions on new images or webcam input.
-
-utils.py → Helper functions: metrics, plotting, saving/loading checkpoints.
-
-models/ – Store trained models and checkpoints.
-
-Include README.md explaining file formats (.h5, .pt) and usage.
-
-notebooks/ – Interactive experiments and demos:
-
-exploratory.ipynb → Dataset analysis and visualization.
-
-demo.ipynb → Demo of real-time Urdu gesture recognition.
-
-tests/ – Unit tests to verify correctness:
-
-test_main.py → Test main script runs without errors.
-
-test_model.py → Test model structure and forward pass.
-
-test_utils.py → Test helper functions.
-
-scripts/ – Optional helper scripts, e.g., dataset downloading.
+Unit tests & CI/CD workflow
 
 requirements.txt – All Python dependencies.
